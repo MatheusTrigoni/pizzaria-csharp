@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\matheus_trigoni\\.nuget\\packages\\": {}
+    "C:\\Users\\matheus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matheus_trigoni\\Pizzaria\\Pizzaria.csproj",
+      "projectUniqueName": "C:\\Users\\matheus\\pizzaria-csharp\\Pizzaria.csproj",
       "projectName": "Pizzaria",
-      "projectPath": "C:\\Users\\matheus_trigoni\\Pizzaria\\Pizzaria.csproj",
-      "packagesPath": "C:\\Users\\matheus_trigoni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matheus_trigoni\\Pizzaria\\obj\\",
+      "projectPath": "C:\\Users\\matheus\\pizzaria-csharp\\Pizzaria.csproj",
+      "packagesPath": "C:\\Users\\matheus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\matheus\\pizzaria-csharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\matheus_trigoni\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\matheus\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -54,12 +54,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.21, 6.0.21]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.21, 6.0.21]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.21, 6.0.21]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.21, 6.0.21]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

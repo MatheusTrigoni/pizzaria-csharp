@@ -1,63 +1,99 @@
-﻿void menu(List<Pizza> listaPz) {
-    Console.WriteLine("Bem-Vindo ao Projeto de Pizarria");
-    Console.WriteLine("ESCOLHA UMA OPÇÃO:");
-    Console.WriteLine("1 - Adicionar Pizza");
-    Console.WriteLine("2 - Listar Pizzas");
-
-    var escolha = int.Parse(Console.ReadLine());
-
-    if (escolha == 1) {
-        var pizza = new Pizza();
-
-        Console.WriteLine("Adicionar uma Pizza!");
-
-        Console.WriteLine("Digite o nome da Pizza:");
-        var nomePizza = Console.ReadLine();
-        pizza.nome = nomePizza;
-
-        Console.WriteLine("Digite os sabores da Pizza separados por vírgula:");
-        string strSaboresPizza = Console.ReadLine();
-        var saboresPizza = new List<string>();
-        string strTemp = "";
-        foreach (var i in saboresPizza) {
-            if (i == ",") {
-                saboresPizza.Add(strTemp);
-                strTemp = "";
-            } else {
-                strTemp += i;
-            }
-        }
-        pizza.sabores = saboresPizza;
-
-        Console.WriteLine("Digite o preço da Pizza (formato 00,00):");
-        var precoPizza = float.Parse(Console.ReadLine());
-        pizza.preco = precoPizza;
-
-        listaPz.Add(pizza);
-
-        Console.WriteLine("PIZZA CRIADA COM SUCESSO");
-
-        menu(listaPz);
-    }
-    else if (escolha == 2) {
-        Console.WriteLine("Listar as Pizzas!");
-
-        foreach (var pz in listaPz) {
-            Console.WriteLine("NOME: " + pz.nome);
-            Console.Write("SABORES: ");
-            foreach (var sabor in pz.sabores) {
-                Console.Write(sabor + ", ");
-            }
-            Console.WriteLine(string.Format("\nPREÇO: {0}", pz.preco));
-        }
-
-        menu(listaPz);
-    }
-    else {
-        Console.WriteLine("OPÇÃO INVÁLIDA! SEM PIZZAS!!! Tente novamente.");
-        menu(listaPz);
-    }
-}
+﻿using System.Linq.Expressions;
 
 var pizzas = new List<Pizza>();
-menu(pizzas);
+var loopOn = true;
+
+while (loopOn) {
+    int? escolha = null;
+    var notNum = true;
+
+    while (notNum) {
+        Console.Clear();
+        Console.WriteLine("Bem-Vindo ao Projeto de Pizarria");
+        Console.WriteLine("ESCOLHA UMA OPÇÃO:");
+        Console.WriteLine("1 - Adicionar Pizza");
+        Console.WriteLine("2 - Listar Pizzas");
+        Console.WriteLine("0 - Sair");
+
+        if (int.TryParse(Console.ReadLine(), out int escolhaInt)) {
+            notNum = false;
+            escolha = escolhaInt;
+        } else {
+            Console.Clear();
+            Console.Write("O valor não é numérico, tente novamente.");
+            Thread.Sleep(1500);
+        }
+    }
+
+    switch (escolha) {
+        case 1:
+            Console.Clear();
+            var pizza = new Pizza();
+
+            Console.WriteLine("Adicionar uma Pizza!");
+            Thread.Sleep(500);
+
+            Console.Write("Digite o nome da Pizza: ");
+            var nomePizza = Console.ReadLine();
+            pizza.nome = nomePizza;
+
+            Console.Write("Digite os sabores da Pizza separados por vírgula: ");
+            string strSaboresPizza = Console.ReadLine();
+            List<string> saboresPizza = strSaboresPizza.Split(',').Select(palavra => palavra.Trim()).ToList();
+            pizza.sabores = saboresPizza;
+
+            Console.Write("Digite o preço da Pizza (formato 00.00): ");
+            var precoPizza = 0.0f; // Valor padrão para caso o valor inserido não seja um número
+            if (float.TryParse(Console.ReadLine(), out float precoPizzaFLoat))
+                precoPizza = precoPizzaFLoat;
+            else { 
+                Console.Write("O valor inserido não é numérico, portanto 00.00 foi atribuído ao valor da pizza.");
+                Thread.Sleep(1500);
+            }
+            pizza.preco = precoPizza;
+
+            pizzas.Add(pizza);
+
+            Console.Write("\nPIZZA CRIADA COM SUCESSO");
+            Thread.Sleep(1000);
+
+            break;
+            
+        case 2:
+            Console.Clear();
+            Console.WriteLine("Listar as Pizzas!");
+            Thread.Sleep(500);
+            
+            foreach (var pz in pizzas) {
+                Console.WriteLine("\nNOME: " + pz.nome);
+                Console.Write("SABORES: ");
+                foreach (var sabor in pz.sabores) {
+                    Console.Write(pz.sabores[pz.sabores.Count() - 1] != sabor ? sabor + ", " : sabor); // Caso seja o último sabor listado, não haverá vírgula depois
+                }
+                Console.WriteLine(string.Format("\nPREÇO: R$ {0:0.00}", pz.preco));
+
+                if (pizzas[pizzas.Count() - 1] != pz) Thread.Sleep(500); else Thread.Sleep(0);
+            }
+
+            Console.Write("\nPressione ENTER para voltar:");
+            Console.ReadLine();
+            
+            break;
+
+        case 0:
+            Console.Clear();
+            Console.WriteLine("Volte sempre!");
+            Thread.Sleep(2000);
+            Console.Clear();
+            loopOn = false;
+
+            break;
+
+        default:
+            Console.Clear();
+            Console.WriteLine("OPÇÃO INVÁLIDA! SEM PIZZAS!!! Tente novamente.");
+            Thread.Sleep(1500);
+
+            break;
+    }
+}

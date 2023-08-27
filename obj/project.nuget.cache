@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Auursunl4SIcKc/aztKwmCyipLwQUgIac85Kcr/guLpA4JNEakg/HSbYJCAS1K3F+zu9TAg5YXlMh7Rr8gUMZw==",
+  "dgSpecHash": "yAxifC24BjPn9tL5VhJFXYwjXbFnklZBODy4p7LiMJxD8fzBPJNz6OnHAtwTMq5dwuH0vxhLR8VqvRvge+owcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matheus_trigoni\\Pizzaria\\Pizzaria.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\matheus\\pizzaria-csharp\\Pizzaria.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matheus\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\matheus\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\matheus\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\matheus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.21\\microsoft.netcore.app.host.win-x64.6.0.21.nupkg.sha512"
+  ],
   "logs": []
 }
