@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 
 var pizzas = new List<Pizza>();
+var pedidos = new List<Pedido>();
 var loopOn = true;
 
 while (loopOn) {
@@ -13,6 +14,8 @@ while (loopOn) {
         Console.WriteLine("ESCOLHA UMA OPÇÃO:");
         Console.WriteLine("1 - Adicionar Pizza");
         Console.WriteLine("2 - Listar Pizzas");
+        Console.WriteLine("3 - Criar Novo Pedido");
+        Console.WriteLine("4 - Listar Pedidos");
         Console.WriteLine("0 - Sair");
 
         if (int.TryParse(Console.ReadLine(), out int escolhaInt)) {
@@ -61,6 +64,7 @@ while (loopOn) {
             
         case 2:
             Console.Clear();
+            
             Console.WriteLine("Listar as Pizzas!");
             Thread.Sleep(500);
             
@@ -78,6 +82,42 @@ while (loopOn) {
             Console.Write("\nPressione ENTER para voltar:");
             Console.ReadLine();
             
+            break;
+
+        case 3:
+            Console.Clear();
+            var pedido = new Pedido();
+
+            Console.Write("Nome do Cliente: ");
+            var nome = Console.ReadLine();
+            pedido.nomeCliente = nome;
+
+            Console.Write("Telefone do Cliente: ");
+            var telefone = Console.ReadLine();
+            pedido.telefoneCliente = telefone;
+
+            Console.WriteLine("Escolha uma pizza para adicionar:");
+            var tempPizzas = new List<Pizza>();
+            foreach (var pizza in pizzas) {
+                Console.WriteLine(string.Format("{0} - R$ {0:0.00}", pizza.nome, pizza.preco));
+            }
+            var nao = true;
+            while (nao) {
+                var pizzaEscolhida = Console.ReadLine();
+                if (pedido.Check(pizzaEscolhida)) {
+                    
+                }
+            }
+
+            break;
+
+        case 4:
+            Console.Clear();
+
+            Console.WriteLine(string.Format("Cliente: {0} - {0}", pedido.nomeCliente, pedido.telefoneCliente));
+            Console.WriteLine("Pizzas do Pedido:");
+            foreach
+
             break;
 
         case 0:
