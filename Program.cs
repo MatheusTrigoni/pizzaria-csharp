@@ -41,7 +41,7 @@ while (loopOn) {
             pizza.nome = nomePizza;
 
             Console.Write("Digite os sabores da Pizza separados por vírgula: ");
-            string strSaboresPizza = Console.ReadLine();
+            string? strSaboresPizza = Console.ReadLine();
             List<string> saboresPizza = strSaboresPizza.Split(',').Select(palavra => palavra.Trim()).ToList();
             pizza.sabores = saboresPizza;
 
@@ -64,19 +64,23 @@ while (loopOn) {
             
         case 2:
             Console.Clear();
+            if (pizzas.Count() == 0) {
+                Console.Write("A lista de pizzas está vazia, adicione pizzas antes de tentar novamente.");
+                Thread.Sleep(2000);
+                break;
+            }
             
             Console.WriteLine("Listar as Pizzas!");
             Thread.Sleep(500);
             
             foreach (var pz in pizzas) {
+                Thread.Sleep(500);
                 Console.WriteLine("\nNOME: " + pz.nome);
                 Console.Write("SABORES: ");
                 foreach (var sabor in pz.sabores) {
                     Console.Write(pz.sabores[pz.sabores.Count() - 1] != sabor ? sabor + ", " : sabor); // Caso seja o último sabor listado, não haverá vírgula depois
                 }
                 Console.WriteLine(string.Format("\nPREÇO: R$ {0:0.00}", pz.preco));
-
-                if (pizzas[pizzas.Count() - 1] != pz) Thread.Sleep(500); else Thread.Sleep(0);
             }
 
             Console.Write("\nPressione ENTER para voltar:");
@@ -97,15 +101,43 @@ while (loopOn) {
             pedido.telefoneCliente = telefone;
 
             Console.WriteLine("Escolha uma pizza para adicionar:");
-            var tempPizzas = new List<Pizza>();
-            foreach (var pizza in pizzas) {
-                Console.WriteLine(string.Format("{0} - R$ {0:0.00}", pizza.nome, pizza.preco));
+            foreach (var pz in pizzas) {
+                Thread.Sleep(350);
+                Console.WriteLine(string.Format("{0} - R$ {1:0.00}", pz.nome, pz.preco));
             }
-            var nao = true;
-            while (nao) {
-                var pizzaEscolhida = Console.ReadLine();
-                if (pedido.Check(pizzaEscolhida)) {
-                    
+
+            var naoEscolhidas = true;
+            var semPizza = true;
+            string? pizzaEscolhida;
+
+            while (naoEscolhidas) {
+                pizzaEscolhida = Console.ReadLine();
+                foreach (var pz in pizzas) {
+                    if (string.Equals(pizzaEscolhida, pz.nome)) {
+                        pedido.pizzas.Add(pz);
+                        while (true) {
+                            Console.WriteLine("Deseja acrescentar mais uma pizza? (1 - SIM | 2 - NÃO)");
+                            if (int.TryParse(Console.ReadLine(), out int escolhaInt)) {
+                                if (escolhaInt == 1) {
+                                    semPizza = false;
+                                    break;
+                                } else if (escolhaInt == 2) {
+                                    semPizza = false;
+                                    pedidos.Add(pedido);
+                                    naoEscolhidas = false;
+                                    break;
+                                } else {
+                                    Console.WriteLine("Opção inválida. Tente novamente.");
+                                }
+                            }
+                        }
+                        
+                        break;
+                    }
+                }   
+
+                if (semPizza) {
+                    Console.WriteLine("O nome digitado não corresponde a nenhuma pizza correspondente, tente novamente.");
                 }
             }
 
@@ -113,10 +145,19 @@ while (loopOn) {
 
         case 4:
             Console.Clear();
+            float total;
 
-            Console.WriteLine(string.Format("Cliente: {0} - {0}", pedido.nomeCliente, pedido.telefoneCliente));
-            Console.WriteLine("Pizzas do Pedido:");
-            foreach
+            foreach (var pd in pedidos) {
+                total = 0;
+                Console.WriteLine(string.Format("Cliente: {0} - {1}", pd.nomeCliente, pd.telefoneCliente));
+                Console.WriteLine("Pizzas do Pedido:");
+                foreach (var pz in pd.pizzas) {
+                    Console.WriteLine(string.Format("{0} - R$ {1:0.00}", pz.nome, pz.preco));
+                    total += pz.preco;
+                }
+                Console.WriteLine("Total: R$ " + total + "\n");
+                Thread.Sleep(500);
+            }
 
             break;
 
