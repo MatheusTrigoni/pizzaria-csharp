@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yAxifC24BjPn9tL5VhJFXYwjXbFnklZBODy4p7LiMJxD8fzBPJNz6OnHAtwTMq5dwuH0vxhLR8VqvRvge+owcg==",
+  "dgSpecHash": "a6ytqu98hCXghzrFY4Jv91ZbHpJ5yHnt3ZCNh3cWf0xGdav4PFPOQNP8TnSBUvDeyUuBVhkz9+OOwpQtltyheA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matheus\\pizzaria-csharp\\Pizzaria.csproj",
+  "projectFilePath": "C:\\Users\\matheus\\Projetos\\C#\\pizzaria-csharp\\Pizzaria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matheus\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
     "C:\\Users\\matheus\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matheus\\pizzaria-csharp\\Pizzaria.csproj",
+      "projectUniqueName": "C:\\Users\\matheus\\Projetos\\C#\\pizzaria-csharp\\Pizzaria.csproj",
       "projectName": "Pizzaria",
-      "projectPath": "C:\\Users\\matheus\\pizzaria-csharp\\Pizzaria.csproj",
+      "projectPath": "C:\\Users\\matheus\\Projetos\\C#\\pizzaria-csharp\\Pizzaria.csproj",
       "packagesPath": "C:\\Users\\matheus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matheus\\pizzaria-csharp\\obj\\",
+      "outputPath": "C:\\Users\\matheus\\Projetos\\C#\\pizzaria-csharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matheus\\AppData\\Roaming\\NuGet\\NuGet.Config"
